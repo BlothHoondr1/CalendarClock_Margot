@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Calendar Clock - Margot</title>
+</head>
+
+<style>
+		
+		
+		
+		#parent{
+			
+			width: 750px;
+			height: 500px;
+			background-color: black;
+			margin: auto;
+			position: relative;
+			background-size: cover;
+			
+		}
+	
+		.child{
+			
+			height: 40px;
+			width: 100px;
+			position: relative;
+			color: #FFD700;
+		}
+		
+		#hour {
+			
+			left: 90px;
+			top: 25px;
+			font-size: 90px;
+			
+		}
+		
+		#minute {
+			
+			left: 210px;
+			top: 20px;
+			font-size: 80px;
+			
+		}
+
+
+		#second {
+			
+			left: 330px;
+			top: 20px;
+			font-size: 70px;
+			
+		}
+
+
+		#morningornoon {
+			
+			left: 440px;
+			top: 20px;
+			font-size: 60px;
+			
+		}
+
+
+
+		#day {
+			
+			left: 100px;
+			top: 110px;
+			font-size: 50px;
+			
+		}
+
+		
+		
+		#month {
+			
+			left: 440px;
+			top: 70px;
+			font-size: 50px;
+			
+		}
+
+		#year {
+			
+			left: 100px;
+			top: 120px;
+			font-size: 50px;
+			
+		}
+		
+		
+		#date {
+			
+			left: 440px;
+			top: 80px;
+			font-size: 50px;
+			
+		}
+		
+</style>
+
+<body>
+
+	<div id="parent">
+
+		<div id="hour" class="child"></div> 
+		<div id="minute" class="child"></div>
+		<div id="second" class="child"></div>
+		<div id="morningornoon" class="child"></div>
+	
+	
+		<div id="day" class="child"></div>
+		<div id="month" class="child"></div>
+		<div id="year" class="child"></div>
+		<div id="date" class="child"></div>
+	
+
+	</div>
+	
+	
+<script>
+
+setInterval(ZaClock, 1000);
+ZaClock();
+
+
+function ZaClock () {
+
+
+var d = new Date();
+
+var hour = d.getHours();
+
+var minute = d.getMinutes();
+
+var second = d.getSeconds();
+
+var day = d.getDay();
+
+var month = d.getMonth();
+
+var year = d.getFullYear();
+
+var date = d.getDate();
+
+
+
+	if (hour > 12){
+	
+		hour = hour - 12;
+		document.getElementById('morningornoon').innerHTML="PM";
+		
+	}	else {
+	
+			document.getElementById('morningornoon').innerHTML="AM";
+			
+			}
+
+
+
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+
+
+
+document.getElementById('hour').innerHTML= hour + ":";
+
+document.getElementById('minute').innerHTML= minute + ":";
+
+document.getElementById('second').innerHTML= second;
+
+document.getElementById('day').innerHTML= days[d.getDay()];
+
+document.getElementById('month').innerHTML= months[d.getMonth()];
+
+document.getElementById('year').innerHTML= year;
+
+document.getElementById('date').innerHTML= date;
+
+
+
+	if (minute < 10){
+	
+			document.getElementById('minute').innerHTML= "0" + minute;
+			
+	}
+			
+			if (second < 10){
+				document.getElementById('second').innerHTML= "0" + second;
+			}
+	
+	
+	
+	
+	
+	
+	
+		if (month==0){
+			
+				document.getElementById('parent').style.backgroundImage="url('images/jan_0.jpg')";
+				
+			}else if (month==1){
+				
+						document.getElementById('parent').style.backgroundImage="url('images/feb_1.jpg')";
+									
+					}else if (month==2){
+						
+								document.getElementById('parent').style.backgroundImage="url('images/march_2.jpg')";
+								
+							}else if(month==3){
+									
+										document.getElementById('parent').style.backgroundImage="url('images/april_3.jpg')";
+									
+									}else if(month==4){
+											
+												document.getElementById('parent').style.backgroundImage="url('images/may_4.jpg')";
+								
+											}else if(month==5){
+													
+													document.getElementById('parent').style.backgroundImage="url('images/june_5.jpg')";
+			
+												}else if(month==6){
+													
+														document.getElementById('parent').style.backgroundImage="url('images/july_6.jpg')";
+			
+													}else if(month==7){
+													
+															document.getElementById('parent').style.backgroundImage="url('images/aug_7.jpg')";
+							
+														}else if(month==8){
+														
+																document.getElementById('parent').style.backgroundImage="url('images/sept_8.jpg')";
+			
+															}else if(month==9){	
+															
+																	document.getElementById('parent').style.backgroundImage="url('images/oct_9.jpg')";
+			
+																}else if (month==10){
+																		
+																		document.getElementById('parent').style.backgroundImage="url('images/nov_10.jpg')";
+																
+																	}else if(mon==11){
+																	
+																			document.getElementById('parent').style.backgroundImage="url('images/dec_11.jpg')";
+																		
+																		}
+
+
+}
+
+</script>
+
+
+
+</body>
+</html>
